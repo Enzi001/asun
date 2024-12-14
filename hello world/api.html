@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/api.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Random Meal Generator</h1>
+      <button id="fetch-meal">Get Random Meal</button>
+      <div id="meal-container" class="meal-container"></div>
+    </div>
+
+    <script>
+      function displayMeal(meal) {
+        const mealContainer = document.getElementById("meal-container");
+        mealContainer.innerHTML = `
+    <h2>${meal.strMeal}</h2>
+    <p>${meal.strInstructions}</p>
+    <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+  `;
+      }
+      document
+        .getElementById("fetch-meal")
+        .addEventListener("click", fetchRandomMeal);
+      const preloader = document.querySelector("[data-preaload]");
+
+      window.addEventListener("load", function () {
+        preloader.classList.add("loaded");
+        document.body.classList.add("loaded");
+      });
+    </script>
+  </body>
+</html>
